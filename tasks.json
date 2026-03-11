@@ -3,9 +3,9 @@
     {
       "id": "tax001",
       "title": "🔥 International Tax Structure — Find Advisor",
-      "description": "Research and shortlist top 3 international tax advisors for Australian expats in Bali. Brief drafted overnight (projects/tax-advisor-research.md). Every week of delay = ~$38K left on the table.\n\n**Potential savings: $2M/year**",
-      "status": "in-progress",
-      "project": "international-tax",
+      "description": "Research and shortlist top 3 international tax advisors for Australian expats in Bali. Every week of delay = ~$38K left on the table.\n\nPotential savings: $2M/year",
+      "status": "in_progress",
+      "project": "growth",
       "tags": ["priority-2", "high-roi", "$2M"],
       "priority": "high",
       "subtasks": [
@@ -19,9 +19,9 @@
     {
       "id": "health001",
       "title": "💊 Health — Review Supplement Stack",
-      "description": "Review and optimise current supplement stack. HBOT sessions (19 at 2 ATA) completed in Adelaide. Next session October. Maintain gains via diet + supplements.",
+      "description": "Review and optimise current supplement stack. HBOT sessions (19 at 2 ATA) completed in Adelaide. Next session October.",
       "status": "backlog",
-      "project": "health",
+      "project": "wellness",
       "tags": ["priority-1", "crohns"],
       "priority": "high",
       "subtasks": [
@@ -34,56 +34,79 @@
     {
       "id": "sm001",
       "title": "📱 Content Machine — Build Pipeline",
-      "description": "Build automated content discovery → scripting → publishing pipeline. Steal architecture from AI Viral Video Machine but use George on camera (not faceless).",
-      "status": "backlog",
-      "project": "sales-marketing",
+      "description": "Automated content discovery → scripting → publishing pipeline. George on camera, contrarian property content.",
+      "status": "in_progress",
+      "project": "growth",
       "tags": ["priority-3", "content"],
-      "priority": "medium",
+      "priority": "high",
       "subtasks": [
-        {"id": "c1", "title": "Get YouTube Data API key (free)", "done": false},
+        {"id": "c1", "title": "Get YouTube Data API key", "done": false},
         {"id": "c2", "title": "Build transcript extraction skill", "done": false},
-        {"id": "c3", "title": "Set up viral signal detection (views/subs ratio)", "done": false},
+        {"id": "c3", "title": "Set up viral signal detection", "done": false},
         {"id": "c4", "title": "Connect copywriter agent for script drafting", "done": false},
-        {"id": "c5", "title": "Set up Typefully for X/Twitter publishing", "done": false}
+        {"id": "c5", "title": "n8n workflows built (5 total)", "done": true},
+        {"id": "c6", "title": "Lawrence sets up API credentials", "done": false}
       ],
       "createdAt": "2026-03-10T06:00:00Z"
     },
     {
       "id": "sm002",
       "title": "📝 Draft 5 Social Media Posts",
-      "description": "5 hot takes ready in content-bank/hot-takes.md. Need to run through humaniser rules and publish.",
+      "description": "5 hot takes ready. Run through humaniser rules and publish natively.",
       "status": "backlog",
-      "project": "sales-marketing",
+      "project": "growth",
       "tags": ["priority-3", "content", "quick-win"],
       "priority": "medium",
       "createdAt": "2026-03-09T10:00:00Z"
     },
     {
       "id": "api001",
-      "title": "🔌 Connect APIs — Unlock Full Capability",
-      "description": "Atlas Prime needs these APIs connected to operate at full capacity. All free, ~15 min total.",
-      "status": "in-progress",
-      "project": "infrastructure",
-      "tags": ["apis", "setup"],
+      "title": "🔌 Connect APIs — Full Capability",
+      "description": "16 APIs needed across business. P1 credentials this week (Google, Slack, GHL, Meta, YouTube, Apify). Lawrence executing.",
+      "status": "in_progress",
+      "project": "devops",
+      "tags": ["apis", "setup", "lawrence"],
       "priority": "high",
       "subtasks": [
-        {"id": "a1", "title": "Google Calendar (ICS URL)", "done": false},
-        {"id": "a2", "title": "Email IMAP credentials", "done": false},
-        {"id": "a3", "title": "GitHub CLI auth", "done": true},
-        {"id": "a4", "title": "Gemini API key", "done": false},
-        {"id": "a5", "title": "YouTube Data API key", "done": false},
-        {"id": "a6", "title": "Perplexity API key (March 20)", "done": false},
-        {"id": "a7", "title": "SearXNG integration", "done": false}
+        {"id": "a1", "title": "Google Workspace API (Service Account)", "done": false},
+        {"id": "a2", "title": "Slack Bot Token", "done": false},
+        {"id": "a3", "title": "GoHighLevel API", "done": false},
+        {"id": "a4", "title": "Meta Business Suite API", "done": false},
+        {"id": "a5", "title": "YouTube Data + Analytics API", "done": false},
+        {"id": "a6", "title": "Apify API Token", "done": false},
+        {"id": "a7", "title": "Stripe API (read-only)", "done": false},
+        {"id": "a8", "title": "ClickUp API", "done": false},
+        {"id": "a9", "title": "Time Doctor API", "done": false}
       ],
       "createdAt": "2026-03-10T05:00:00Z"
     },
     {
+      "id": "show001",
+      "title": "🎙️ Thursday Night Live — March 13 Show",
+      "description": "32-slide show BUILT. Needs: client wins #2-3, guest confirmation, chart screenshots from MacroBusiness URLs, event CTA.",
+      "status": "in_progress",
+      "project": "growth",
+      "tags": ["priority-3", "content", "thursday"],
+      "priority": "high",
+      "subtasks": [
+        {"id": "s1", "title": "Research 15 MacroBusiness articles", "done": true},
+        {"id": "s2", "title": "Build 32-slide presentation", "done": true},
+        {"id": "s3", "title": "Write 8 reel hooks", "done": true},
+        {"id": "s4", "title": "Social posts + email snippets", "done": true},
+        {"id": "s5", "title": "George fills client wins #2-3", "done": false},
+        {"id": "s6", "title": "Confirm guest + topic", "done": false},
+        {"id": "s7", "title": "Screenshot charts from source URLs", "done": false},
+        {"id": "s8", "title": "Event CTA details", "done": false}
+      ],
+      "createdAt": "2026-03-11T06:00:00Z"
+    },
+    {
       "id": "dual001",
-      "title": "🏗️ Deploy Atlas Business (2nd OpenClaw Instance)",
-      "description": "Separate Docker container for team-facing AI. Atlas Prime (personal) ↔ Atlas Business (team). Data flows one way: business → prime OK, prime → business BLOCKED.",
+      "title": "🏗️ Deploy Atlas Business (2nd OpenClaw)",
+      "description": "Separate Docker container for team-facing AI. Atlas Prime (personal) ↔ Atlas Business (team). Data flows one way only.",
       "status": "backlog",
-      "project": "ai-team-system",
-      "tags": ["priority-5", "infrastructure", "lawrence"],
+      "project": "devops",
+      "tags": ["infrastructure", "lawrence"],
       "priority": "medium",
       "subtasks": [
         {"id": "d1", "title": "Draft Docker Compose spec", "done": false},
@@ -97,9 +120,9 @@
     {
       "id": "zoom001",
       "title": "💰 Zoom License Optimisation",
-      "description": "Reduce from 15 → 5-6 licenses. Only hosts need paid accounts. Savings: ~$12K/year. Need Christina/Mel to validate who hosts meetings.",
-      "status": "in-progress",
-      "project": "cost-optimization",
+      "description": "Reduce from 15 → 5-6 licenses. Only hosts need paid accounts. Savings: ~$12K/year.",
+      "status": "in_progress",
+      "project": "devops",
       "tags": ["cost-saving", "$12K"],
       "priority": "medium",
       "subtasks": [
@@ -111,61 +134,28 @@
       "createdAt": "2026-03-10T10:30:00Z"
     },
     {
-      "id": "vision001",
-      "title": "🕶️ VisionClaw — Ray-Ban AI Integration",
-      "description": "Connect Meta Ray-Bans to OpenClaw via VisionClaw (Intent-Lab/sseanliu). Gemini Live for vision + voice, OpenClaw for tool execution. Needs Gemini API key + iOS/Android app build.",
-      "status": "backlog",
-      "project": "infrastructure",
-      "tags": ["visionclaw", "ray-bans", "gemini"],
-      "priority": "low",
-      "subtasks": [
-        {"id": "v1", "title": "Get Gemini API key", "done": false},
-        {"id": "v2", "title": "Enable chatCompletions on gateway", "done": false},
-        {"id": "v3", "title": "Clone VisionClaw repo", "done": false},
-        {"id": "v4", "title": "Build iOS/Android app", "done": false},
-        {"id": "v5", "title": "Test phone camera mode", "done": false},
-        {"id": "v6", "title": "Connect Ray-Ban glasses", "done": false}
-      ],
-      "createdAt": "2026-03-09T17:00:00Z"
-    },
-    {
-      "id": "scan001",
-      "title": "📄 Digitise 20 Years of Handwritten Notes",
-      "description": "George has 20 years of notebooks in Adelaide. Need scanning service or portable scanner + local assistant. Then OCR → searchable knowledge base.",
-      "status": "backlog",
-      "project": "personal",
-      "tags": ["adelaide", "scanning"],
-      "priority": "low",
-      "subtasks": [
-        {"id": "s1", "title": "Choose: Airtasker, Officeworks, or buy scanner", "done": false},
-        {"id": "s2", "title": "Get notebooks scanned to PDF", "done": false},
-        {"id": "s3", "title": "Atlas extracts insights into knowledge base", "done": false}
-      ],
-      "createdAt": "2026-03-10T09:00:00Z"
-    },
-    {
       "id": "tennyson001",
       "title": "🏠 Tennyson House Security Monitoring",
       "description": "Connect Arlo cameras + HikVision CCTV to Atlas Prime. Motion alerts → WhatsApp. House empty 8 months/year.",
       "status": "backlog",
-      "project": "infrastructure",
-      "tags": ["tennyson", "security", "arlo", "hikvision"],
+      "project": "devops",
+      "tags": ["tennyson", "security"],
       "priority": "medium",
       "subtasks": [
         {"id": "te1", "title": "Get HikVision NVR credentials", "done": false},
         {"id": "te2", "title": "Get Arlo account credentials", "done": false},
-        {"id": "te3", "title": "Build Arlo skill (pyaarlo)", "done": false},
-        {"id": "te4", "title": "Build HikVision skill (ISAPI)", "done": false},
-        {"id": "te5", "title": "Set up motion alert → WhatsApp pipeline", "done": false}
+        {"id": "te3", "title": "Build Arlo skill", "done": false},
+        {"id": "te4", "title": "Build HikVision skill", "done": false},
+        {"id": "te5", "title": "Motion alert → WhatsApp pipeline", "done": false}
       ],
       "createdAt": "2026-03-10T10:00:00Z"
     },
     {
       "id": "baby001",
-      "title": "👶 Baby Prep — 80 Days",
-      "description": "Christina due May 29, 2026. List and automate everything possible before baby arrives.",
+      "title": "👶 Baby Prep — Christina Due May 29",
+      "description": "Automate everything possible before baby arrives. Maximise delegation.",
       "status": "backlog",
-      "project": "baby-prep",
+      "project": "personal",
       "tags": ["priority-4", "deadline-may29"],
       "priority": "medium",
       "subtasks": [
@@ -175,135 +165,169 @@
       "createdAt": "2026-03-09T08:00:00Z"
     },
     {
+      "id": "scan001",
+      "title": "📄 Digitise 20 Years of Handwritten Notes",
+      "description": "George has 20 years of notebooks in Adelaide. Scan → OCR → searchable knowledge base.",
+      "status": "backlog",
+      "project": "personal",
+      "tags": ["adelaide", "scanning"],
+      "priority": "low",
+      "subtasks": [
+        {"id": "s1", "title": "Choose: Airtasker, Officeworks, or buy scanner", "done": false},
+        {"id": "s2", "title": "Get notebooks scanned to PDF", "done": false},
+        {"id": "s3", "title": "Extract insights into knowledge base", "done": false}
+      ],
+      "createdAt": "2026-03-10T09:00:00Z"
+    },
+    {
+      "id": "vision001",
+      "title": "🕶️ VisionClaw — Ray-Ban AI Integration",
+      "description": "Connect Meta Ray-Bans to OpenClaw via VisionClaw. Gemini Live for vision + voice.",
+      "status": "backlog",
+      "project": "devops",
+      "tags": ["visionclaw", "ray-bans"],
+      "priority": "low",
+      "subtasks": [
+        {"id": "v1", "title": "Get Gemini API key", "done": false},
+        {"id": "v2", "title": "Enable chatCompletions on gateway", "done": false},
+        {"id": "v3", "title": "Clone VisionClaw repo", "done": false},
+        {"id": "v4", "title": "Build iOS/Android app", "done": false},
+        {"id": "v5", "title": "Test phone camera mode", "done": false}
+      ],
+      "createdAt": "2026-03-09T17:00:00Z"
+    },
+    {
       "id": "vape001",
       "title": "🔬 Vape Business Research (Sister Chris)",
-      "description": "OEM sponsor path, $200-350K startup, $600M AU market. George ≤2hrs/month, sister leads. 6-18 month timeline.",
+      "description": "OEM sponsor path, $200-350K startup, $600M AU market. George ≤2hrs/month, sister leads.",
       "status": "backlog",
-      "project": "vape-business",
-      "tags": ["priority-6", "delegated", "sister"],
+      "project": "growth",
+      "tags": ["delegated", "sister"],
       "priority": "low",
       "subtasks": [
         {"id": "vp1", "title": "Shortlist 3 RA consultants", "done": false},
         {"id": "vp2", "title": "Draft consultant briefing document", "done": false},
-        {"id": "vp3", "title": "Research OEM suppliers", "done": false},
-        {"id": "vp4", "title": "Create isolated agent for sister", "done": false}
+        {"id": "vp3", "title": "Research OEM suppliers", "done": false}
       ],
       "createdAt": "2026-03-09T12:00:00Z"
     },
     {
-      "id": "boardroom001",
-      "title": "📡 Boardroom Community Intelligence",
-      "description": "Monitor Boardroom WhatsApp community for AI business insights. Extract learnings, tools mentioned, strategies shared. Store in intel/boardroom/.",
-      "status": "in-progress",
-      "project": "research",
-      "tags": ["community", "ai-insights"],
-      "priority": "medium",
-      "subtasks": [
-        {"id": "br1", "title": "Join Boardroom community", "done": true},
-        {"id": "br2", "title": "Create intel folder structure", "done": true},
-        {"id": "br3", "title": "Start capturing insights from new messages", "done": false}
-      ],
-      "createdAt": "2026-03-10T08:40:00Z"
-    },
-    {
       "id": "cron_midnight",
-      "title": "⏰ Cron: Midnight Self-Audit",
-      "description": "Daily at midnight MYT. Reviews all config and workspace files. Proposes changes, doesn't auto-apply.",
+      "title": "⏰ Midnight Self-Audit",
+      "description": "Daily at midnight MYT. Reviews config and workspace files.",
       "status": "permanent",
-      "project": "automation",
+      "project": "devops",
       "tags": ["cron", "daily"],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     },
     {
       "id": "cron_morning",
-      "title": "⏰ Cron: Morning Magic (4 AM)",
-      "description": "Daily at 4 AM MYT. System maintenance, skill updates, overnight task execution, morning briefing compilation.",
+      "title": "⏰ Morning Magic (4 AM)",
+      "description": "Daily. System maintenance, skill updates, overnight task execution.",
       "status": "permanent",
-      "project": "automation",
+      "project": "devops",
       "tags": ["cron", "daily"],
       "priority": "high",
       "createdAt": "2026-03-09T08:00:00Z"
     },
     {
       "id": "cron_backup",
-      "title": "⏰ Cron: Daily Backup & Security Scan (4:30 AM)",
-      "description": "Daily at 4:30 AM MYT. Secret scanning, git commit, push to GitHub backup.",
+      "title": "⏰ Daily Backup & Security Scan (4:30 AM)",
+      "description": "Secret scanning, git commit, push to GitHub backup.",
       "status": "permanent",
-      "project": "automation",
+      "project": "devops",
       "tags": ["cron", "daily", "security"],
       "priority": "high",
       "createdAt": "2026-03-09T15:00:00Z"
     },
     {
-      "id": "cron_wednesday",
-      "title": "⏰ Cron: Wednesday Contrarian Briefing (8 AM)",
-      "description": "Weekly. Property, investing, Trump, world economy, RBA, interest rates. Bold contrarian takes.",
-      "status": "permanent",
-      "project": "automation",
-      "tags": ["cron", "weekly", "content"],
-      "priority": "medium",
-      "createdAt": "2026-03-09T08:00:00Z"
-    },
-    {
-      "id": "cron_thursday",
-      "title": "⏰ Cron: Thursday Project Status (9 AM)",
-      "description": "Weekly. Status report on all active projects with blockers and next actions.",
-      "status": "permanent",
-      "project": "automation",
-      "tags": ["cron", "weekly"],
-      "priority": "medium",
-      "createdAt": "2026-03-09T08:00:00Z"
-    },
-    {
-      "id": "cron_friday",
-      "title": "⏰ Cron: Friday Week Summary (4 PM)",
-      "description": "Weekly. Week-in-review, what got done, what didn't, next week's #1 focus.",
-      "status": "permanent",
-      "project": "automation",
-      "tags": ["cron", "weekly"],
-      "priority": "medium",
-      "createdAt": "2026-03-09T08:00:00Z"
-    },
-    {
       "id": "cron_monday_acc",
-      "title": "⏰ Cron: Monday Accountability (9 AM)",
-      "description": "Weekly. Coach-style check-in. What's your ONE focus? Side quest review. Health check-in.",
+      "title": "⏰ Monday Accountability (9 AM)",
+      "description": "Weekly. Coach-style check-in. What's your ONE focus?",
       "status": "permanent",
-      "project": "automation",
+      "project": "growth",
       "tags": ["cron", "weekly"],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     },
     {
       "id": "cron_monday_model",
-      "title": "⏰ Cron: Monday Model Intelligence (10 AM)",
-      "description": "Weekly. Check for new AI model releases, benchmark changes, pricing updates.",
+      "title": "⏰ Monday Model Intelligence (10 AM)",
+      "description": "Weekly. Check for new AI model releases and pricing updates.",
       "status": "permanent",
-      "project": "automation",
+      "project": "devops",
       "tags": ["cron", "weekly"],
       "priority": "low",
       "createdAt": "2026-03-09T08:00:00Z"
     },
     {
-      "id": "cron_sunday",
-      "title": "⏰ Cron: Sunday Self-Review (8 AM)",
-      "description": "Weekly. Atlas Prime grades itself. Routing accuracy, task completion, lessons learned.",
+      "id": "cron_wednesday",
+      "title": "⏰ Wednesday Contrarian Briefing (8 AM)",
+      "description": "Weekly. Property, investing, RBA, interest rates. Bold contrarian takes.",
       "status": "permanent",
-      "project": "automation",
+      "project": "growth",
+      "tags": ["cron", "weekly", "content"],
+      "priority": "medium",
+      "createdAt": "2026-03-09T08:00:00Z"
+    },
+    {
+      "id": "cron_thursday",
+      "title": "⏰ Thursday Project Status (9 AM)",
+      "description": "Weekly. Status report on all active projects with blockers.",
+      "status": "permanent",
+      "project": "devops",
+      "tags": ["cron", "weekly"],
+      "priority": "medium",
+      "createdAt": "2026-03-09T08:00:00Z"
+    },
+    {
+      "id": "cron_friday",
+      "title": "⏰ Friday Week Summary (4 PM)",
+      "description": "Weekly. Week-in-review, next week's #1 focus.",
+      "status": "permanent",
+      "project": "growth",
+      "tags": ["cron", "weekly"],
+      "priority": "medium",
+      "createdAt": "2026-03-09T08:00:00Z"
+    },
+    {
+      "id": "cron_friday_scorecard",
+      "title": "⏰ Friday Content Scorecard (9 AM)",
+      "description": "Weekly. Content performance review across all platforms.",
+      "status": "permanent",
+      "project": "growth",
+      "tags": ["cron", "weekly", "analytics"],
+      "priority": "medium",
+      "createdAt": "2026-03-11T10:34:00Z"
+    },
+    {
+      "id": "cron_sunday",
+      "title": "⏰ Sunday Self-Review (8 AM)",
+      "description": "Weekly. Atlas Prime grades itself. Routing accuracy, lessons learned.",
+      "status": "permanent",
+      "project": "devops",
       "tags": ["cron", "weekly"],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     },
     {
       "id": "cron_email",
-      "title": "⏰ Cron: Tuesday Email Review (DISABLED)",
-      "description": "Weekly at 9 AM. Currently disabled — needs IMAP credentials to activate.",
+      "title": "⏰ Tuesday Email Review (DISABLED)",
+      "description": "Weekly at 9 AM. Needs IMAP credentials to activate.",
       "status": "permanent",
-      "project": "automation",
+      "project": "devops",
       "tags": ["cron", "weekly", "blocked"],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     }
-  ]
+  ],
+  "projects": [
+    { "id": "devops", "name": "DevOps", "color": "#3b82f6", "icon": "💻" },
+    { "id": "growth", "name": "Growth", "color": "#10b981", "icon": "📈" },
+    { "id": "wellness", "name": "Wellness", "color": "#ec4899", "icon": "🧘" },
+    { "id": "personal", "name": "Personal", "color": "#8b5cf6", "icon": "🏠" }
+  ],
+  "activities": [],
+  "lastUpdated": "2026-03-11T09:00:00Z"
 }
