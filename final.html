@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Positive Property Show - March 13, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .presentation {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1280px;
+            height: 720px;
+            background: #0A1628;
+            padding: 60px;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            transform-origin: top left;
+        }
+        
+        .slide.active {
+            display: flex;
+        }
+        
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 64px;
+            color: #C5A55A;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 48px;
+            color: #C5A55A;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+        }
+        
+        h3 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 28px;
+            color: #fff;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .content-text {
+            font-size: 32px;
+            line-height: 1.6;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .content-text strong,
+        .gold {
+            color: #C5A55A;
+            font-weight: 700;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        li {
+            font-size: 28px;
+            line-height: 1.8;
+            color: #fff;
+            margin-bottom: 18px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        li:before {
+            content: "•";
+            color: #C5A55A;
+            font-size: 40px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .chart-placeholder {
+            border: 3px solid #fff;
+            padding: 40px;
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+            margin: 25px 0;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .chart-label {
+            font-size: 24px;
+            color: #C5A55A;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .chart-source {
+            font-size: 16px;
+            color: #999;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 3px solid #C5A55A;
+        }
+        
+        .footer-left {
+            font-size: 14px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .footer-right {
+            font-size: 14px;
+            color: #C5A55A;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .slide-counter {
+            position: absolute;
+            bottom: 60px;
+            right: 60px;
+            font-size: 18px;
+            color: #999;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        /* Center aligned slides (section dividers, title, etc) */
+        .slide.center .slide-content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .slide.center h1 {
+            margin-bottom: 20px;
+        }
+        
+        .slide.center h3 {
+            margin-bottom: 0;
+        }
+        
+        /* Speaker notes */
+        .speaker-notes {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0D1117;
+            padding: 20px 40px;
+            border-top: 2px solid #C5A55A;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+        }
+        
+        .speaker-notes.visible {
+            display: block;
+        }
+        
+        .speaker-notes-title {
+            font-size: 12px;
+            color: #C5A55A;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .speaker-notes-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        /* Hooks panel */
+        .hooks-panel {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 500px;
+            height: 100vh;
+            background: #0D1117;
+            border-left: 3px solid #C5A55A;
+            padding: 30px;
+            overflow-y: auto;
+            transition: right 0.3s ease;
+            z-index: 2000;
+        }
+        
+        .hooks-panel.visible {
+            right: 0;
+        }
+        
+        .hooks-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            color: #C5A55A;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .hook-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .hook-item:last-child {
+            border-bottom: none;
+        }
+        
+        .hook-number {
+            font-size: 14px;
+            color: #C5A55A;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hook-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #C5A55A;
+            font-style: italic;
+        }
+        
+        /* Scaling for different screen sizes */
+        @media print {
+            .slide {
+                page-break-after: always;
+                position: relative;
+                display: flex !important;
+            }
+            .speaker-notes,
+            .hooks-panel,
+            .slide-counter {
+                display: none !important;
+            }
+        }
+        
+        .help-overlay {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(13, 17, 23, 0.95);
+            border: 2px solid #C5A55A;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+            z-index: 3000;
+        }
+        
+        .help-overlay.visible {
+            display: block;
+        }
+        
+        .help-title {
+            font-size: 18px;
+            color: #C5A55A;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .help-item {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 8px;
+        }
+        
+        .help-key {
+            color: #C5A55A;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation" id="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide active center" data-notes="Welcome to The Positive Property Show. Tonight we're covering the state of the nation — and it's not pretty. But by the end of this show, you'll understand why right now is actually one of the best times to be a property investor in years.">
+            <div class="slide-content">
+                <h1>THE POSITIVE PROPERTY SHOW</h1>
+                <h3>State of the Nation — March 13, 2026</h3>
+                <h3>With George Markoski</h3>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Opening Hook/Teaser -->
+        <div class="slide center" data-notes="Tonight: Oil at $109 heading to $200. Real wages back to 2011. Consumer confidence crashed. Government 81,000 homes behind target. But while Sydney and Melbourne stall, three markets have DOUBLED since COVID. Emergency rate cuts are coming. And smart investors are buying right now. I'll show you the client wins, the data, and exactly what to do. Let's go.">
+            <div class="slide-content">
+                <h2>TONIGHT: OIL CRISIS, RATE CUTS, AND WHY PROPERTY IS ABOUT TO BOOM</h2>
+                <ul>
+                    <li>Fuel reserves running out — <strong class="gold">$200 oil</strong> on the horizon</li>
+                    <li>Your wages back to <strong class="gold">2011 levels</strong></li>
+                    <li>One market has <strong class="gold">DOUBLED</strong> since COVID</li>
+                    <li>Why I'm telling members to <strong class="gold">buy NOW</strong></li>
+                    <li>Plus: client wins and your action plan</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Section Divider - State of the Nation -->
+        <div class="slide center" data-notes="Let's start with what's really happening in Australia right now. The headlines are scary. And some of them should scare you. But stick with me — because inside this chaos is the setup for the next property boom.">
+            <div class="slide-content">
+                <h1>STATE OF THE NATION</h1>
+                <h3>What's Really Happening in Australia Right Now</h3>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 4: This Week's Headlines -->
+        <div class="slide" data-notes="I want to start with the bad news. Because there IS bad news. And I'm not going to sugarcoat it. But by the end of tonight, you'll see why all of this actually creates the biggest opportunity for property investors in years.">
+            <div class="slide-content">
+                <h2>THE HEADLINES LOOK SCARY</h2>
+                <ul>
+                    <li>Oil crisis deepening — <strong class="gold">Straits of Hormuz closed</strong></li>
+                    <li>Consumer confidence crashed to <strong class="gold">73.4</strong></li>
+                    <li>Real wages back to <strong class="gold">2011 levels</strong></li>
+                    <li>Worst decade for Australian households in <strong class="gold">70+ years</strong></li>
+                    <li>Everyone's talking about a property crash</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Oil Crisis -->
+        <div class="slide" data-notes="This is serious. The Iran war has closed the Straits of Hormuz. Oil is at $109 and if nothing changes, we're looking at $200 by next week. Australia is dangerously unprepared — we have about one month of fuel reserves. Petrol could hit $5 a litre, maybe $10. This would literally bring the economy to a halt. Now, before you panic — stay with me. Because this has massive implications for interest rates, and that's where property investors need to pay attention.">
+            <div class="slide-content">
+                <h2>THE OIL ENDGAME.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Oil Price Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/the-oil-endgame-as-aussie-rationing-begins/</div>
+                </div>
+                <ul>
+                    <li>Oil at <strong class="gold">$109</strong>. Heading to <strong class="gold">$200</strong> if Straits of Hormuz stay closed.</li>
+                    <li>Australia has only <strong class="gold">1 month</strong> fuel reserves.</li>
+                    <li>Petrol heading to <strong class="gold">$5/litre</strong>. Could go to <strong class="gold">$10</strong>.</li>
+                    <li>Triple energy shock: <strong class="gold">oil + gas + electricity</strong> hit simultaneously.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Consumer Confidence -->
+        <div class="slide" data-notes="Consumer confidence just dropped nearly 4 points. Inflation expectations hit 6.1%. People are genuinely worried. And I get it — the headlines are terrifying. But here's what I've learned from 160 properties and 25 years of investing: fear is the best buying signal there is.">
+            <div class="slide-content">
+                <h2>CONFIDENCE IS CRASHING.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 ANZ-Roy Morgan Consumer Confidence Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/consumer-and-business-confidence-hit-the-kids/</div>
+                </div>
+                <ul>
+                    <li>Consumer confidence: <strong class="gold">73.4</strong> — down 3.7 points.</li>
+                    <li>Inflation expectations jumped to <strong class="gold">6.1%</strong>.</li>
+                    <li>People are scared. And scared people don't buy.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Worst Decade -->
+        <div class="slide" data-notes="This is the stat that should make every Australian angry. Real household income — what you actually take home after inflation — is still 3.9% below where it was during COVID. Growth is running at 0.6% per year. That's the worst decade for Australian families in over 70 years of record keeping. Your wages are failing you. Remember that — it's important for what comes next.">
+            <div class="slide-content">
+                <h2>THE WORST DECADE IN 70 YEARS.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Real Household Income Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/a-decade-to-forget-for-australian-households/</div>
+                </div>
+                <ul>
+                    <li>Real household income still <strong class="gold">3.9% BELOW</strong> COVID peak.</li>
+                    <li>Growth of just <strong class="gold">0.6%/year</strong> — slowest in 70+ years of records.</li>
+                    <li>Australian families are <strong class="gold">going backwards</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Wages Going Backwards -->
+        <div class="slide" data-notes="Real wages fell again last year. You're earning 6% less in real terms than you were at the peak — back to 2011 levels. And the RBA's own forecast says this doesn't recover before 2028. So wages are going backwards, inflation is eating your savings, and rents are rising faster than pay. If you're relying on your salary alone to build wealth, you are losing. Every single year.">
+            <div class="slide-content">
+                <h2>YOUR PAY IS GOING BACKWARDS.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Real Wages Index Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/aussie-real-wages-face-heavy-falls/</div>
+                </div>
+                <ul>
+                    <li>Real wages fell <strong class="gold">0.3%</strong> in 2025. Now <strong class="gold">6% below peak</strong>.</li>
+                    <li>Back to <strong class="gold">2011 levels</strong>. RBA says NO recovery through 2028.</li>
+                    <li>Wages: <strong class="gold">3.4%</strong>. Rents: <strong class="gold">3.9%</strong>. Inflation: <strong class="gold">3.8%</strong>.</li>
+                    <li>Your purchasing power is being quietly <strong class="gold">destroyed</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Government Job Bloat -->
+        <div class="slide" data-notes="While your wages go backwards, the government is hiring like crazy. Public sector employment is booming. Private sector? Stagnating. Productivity is falling because we've got more bureaucrats and fewer builders. More rules and fewer homes. This is a structural problem that politicians can't fix because they ARE the problem.">
+            <div class="slide-content">
+                <h2>GOVERNMENT BLOAT. PRIVATE PAIN.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Public vs Private Employment Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/government-job-boom-stifles-productivity-growth/</div>
+                </div>
+                <ul>
+                    <li>Public sector hiring <strong class="gold">booming</strong> while private sector stagnates.</li>
+                    <li>Productivity <strong class="gold">falling</strong> as bureaucracy grows.</li>
+                    <li>More <strong class="gold">planners</strong>, fewer <strong class="gold">builders</strong>. More rules, fewer homes.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Immigration Paradox -->
+        <div class="slide" data-notes="Here's the stat that changes everything. Australia's population growth rate now exceeds India's on a relative basis. We're 27 million people and growing at a rate that would make developing nations jealous. But here's the problem — only 2.8% of recent migrants work in construction. So every new person needs a home, but almost none of them are building homes. We're importing demand without importing supply. This is the fundamental equation driving property prices.">
+            <div class="slide-content">
+                <h2>MORE PEOPLE. NOT ENOUGH HOMES.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Population Growth OECD Comparison Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/australias-population-grows-faster-than-indias/</div>
+                </div>
+                <ul>
+                    <li>Australia growing <strong class="gold">faster than India</strong> (OECD, 2000-2024).</li>
+                    <li><strong class="gold">27.4 million</strong> people and accelerating.</li>
+                    <li>Only <strong class="gold">2.8%</strong> of recent migrants work in construction.</li>
+                    <li>Immigration adds <strong class="gold">DEMAND</strong> without adding <strong class="gold">SUPPLY</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Canada Proof -->
+        <div class="slide" data-notes="If you want proof that immigration drives housing costs, look at Canada. They cut immigration from 500,000 to 365,000. Within 17 months, rents fell 7.8%. Affordability improved from 34% to 29% of income. That's a controlled experiment. Australia? We're doing the exact opposite. Record immigration, record population growth. And we're surprised rents are skyrocketing? This isn't complicated.">
+            <div class="slide-content">
+                <h2>CANADA PROVED IT.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Canada Rent Decline After Immigration Cuts Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/canadian-government-schools-australia-on-housing-affordability/</div>
+                </div>
+                <ul>
+                    <li>Canada cut immigration from <strong class="gold">500K to 365K</strong>.</li>
+                    <li>Result: Rents fell <strong class="gold">7.8%</strong> in 17 months.</li>
+                    <li>Affordability improved from <strong class="gold">34% to 29%</strong> of income.</li>
+                    <li>Australia is doing the <strong class="gold">OPPOSITE</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Supply Crisis -->
+        <div class="slide" data-notes="The government promised 1.2 million homes in 5 years. Fifteen months in, they're 81,000 homes short. That's 27% behind target. And it's getting WORSE — approvals are falling, not growing. The construction industry has been consumed by bureaucracy. Tradies used to be 54% of the workforce, now they're 50%. We've got more people pushing paper and fewer people laying bricks. This supply crisis is structural. It's not getting fixed anytime soon.">
+            <div class="slide-content">
+                <h2>81,000 HOMES SHORT.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Dwelling Completions vs Target Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/falling-approvals-shatter-housing-targets/</div>
+                </div>
+                <ul>
+                    <li>Government target: <strong class="gold">240,000 homes/year</strong>. Already <strong class="gold">27% behind</strong>.</li>
+                    <li>Approvals <strong class="gold">FALLING</strong>, not growing.</li>
+                    <li>Too many suits, not enough tradies (<strong class="gold">50% tradies</strong>, was 54%).</li>
+                    <li>NSW and QLD shortfall <strong class="gold">worst</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Transition -->
+        <div class="slide center" data-notes="Okay. Deep breath. I've just shown you a lot of scary stuff. Oil crisis, wages falling, confidence crashing, supply shortage getting worse. But here's what 25 years and 160 properties have taught me: inside every crisis is the setup for the next boom. Let me show you why.">
+            <div class="slide-content">
+                <h2>SO... IS IT ALL DOOM AND GLOOM?</h2>
+                <h3>That was the bad news.</h3>
+                <h3>Now let me show you the opportunity.</h3>
+                <p class="content-text" style="text-align: center; font-style: italic; margin-top: 30px;">Because inside every crisis is the setup for the next boom.</p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Section Divider - The Opportunity -->
+        <div class="slide center" data-notes="Now let's talk about why smart investors are buying right now. This is where data beats emotion. This is where fortunes are made.">
+            <div class="slide-content">
+                <h1>THE OPPORTUNITY</h1>
+                <h3>Why Smart Investors Are Buying Right Now</h3>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Rate Cuts Coming -->
+        <div class="slide" data-notes="Everyone's been expecting more rate hikes. But with oil heading to $200, the RBA won't be hiking — they'll be cutting. Emergency cuts to save the economy. And what happens every single time rates get cut aggressively? Property booms. This isn't speculation — it's the historical pattern. Every crisis that forced emergency cuts created the next property boom. 1991, 2001, 2008, 2020. The cycle is about to turn again.">
+            <div class="slide-content">
+                <h2>FORGET HIKES. THINK CUTS.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 RBA Cash Rate History Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/emergency-rba-rate-cuts-anyone/</div>
+                </div>
+                <ul>
+                    <li>Cash rate: <strong class="gold">3.85%</strong>. Oil crisis could force <strong class="gold">EMERGENCY cuts</strong>.</li>
+                    <li>Every previous crisis → rate cuts → <strong class="gold">property boom</strong>.</li>
+                    <li>Every <strong class="gold">0.25% cut</strong> = ~$100K more borrowing power.</li>
+                    <li>The cycle is about to <strong class="gold">turn</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Two-Speed Market -->
+        <div class="slide" data-notes="Now here's where it gets interesting. The media says 'property market cooling.' Really? Perth has DOUBLED since COVID. Brisbane DOUBLED. Adelaide DOUBLED. The only places stalling are Sydney and Melbourne — and that's because listings surged, not because demand died. This is a two-speed market. And this is EXACTLY why the Markoski Method focuses on Top 100 locations. If you're in the right location, you're doubling your money. Wrong location? You're stalling. Data-driven selection is everything.">
+            <div class="slide-content">
+                <h2>TWO MARKETS. ONE COUNTRY.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 PropTrack Dwelling Values Since COVID Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/sydney-and-melbourne-house-prices-stall-as-listings-surge/</div>
+                </div>
+                <ul>
+                    <li>Perth, Brisbane, Adelaide: <strong class="gold">DOUBLED</strong> since COVID.</li>
+                    <li>Sydney: <strong class="gold">+46%</strong>. Melbourne: <strong class="gold">+22%</strong>. Both flatlined 28 days.</li>
+                    <li>The "crash" is only in two cities. The boom is in three.</li>
+                    <li>This is why <strong class="gold">TOP 100 LOCATION SELECTION</strong> matters.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Brisbane Deep Dive -->
+        <div class="slide" data-notes="Let me use Brisbane as a case study. Shane Oliver at AMP says Brisbane is 45% overvalued. Sounds scary right? But he's using historical price-to-income ratios — and those ratios assumed normal population growth. Queensland's population growth is anything but normal — it's 145,000 people above the pre-pandemic trend. And listings are down 23% year on year. When there are more people and fewer homes for sale, old valuation models break. The fundamentals have changed. If you bought in Brisbane three years ago, you've DOUBLED your money.">
+            <div class="slide-content">
+                <h2>BRISBANE: DOUBLED AND RISING.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Brisbane Dwelling Values Chart</div>
+                    <div class="chart-source">Source: macrobusiness.com.au/2026/03/brisbane-is-australias-most-overvalued-housing-market/</div>
+                </div>
+                <ul>
+                    <li>Median dwelling: <strong class="gold">$1,046,000</strong> — now #2 after Sydney.</li>
+                    <li>Up <strong class="gold">116%</strong> since COVID. Listings down <strong class="gold">22.9%</strong>.</li>
+                    <li>Shane Oliver says "45% overvalued" — but using <strong class="gold">OLD ratios</strong>.</li>
+                    <li>QLD population growth is NOT normal — it's <strong class="gold">145K above trend</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 18: Rental Cashflow -->
+        <div class="slide" data-notes="While renters struggle with rising rents, investors are seeing their cashflow explode. Investor lending has surged to nearly $40 billion. Some regional WA properties are yielding 10%. Rents have outpaced wages for five consecutive years. And smart investors are moving now before potential capital gains tax changes in the May budget. The rental crisis is terrible for renters — but for property investors, it means stronger income streams every year.">
+            <div class="slide-content">
+                <h2>INVESTORS ARE WINNING.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Investor Lending Chart</div>
+                    <div class="chart-source">Source: MacroBusiness, ABS Lending Indicators</div>
+                </div>
+                <ul>
+                    <li>Investor lending: up to <strong class="gold">$39.8 billion</strong> (from $33.8B).</li>
+                    <li>Regional WA yields hitting <strong class="gold">10%</strong>.</li>
+                    <li>Rents outpacing wages for <strong class="gold">5 consecutive years</strong>.</li>
+                    <li>Investors piling in before potential <strong class="gold">CGT changes</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 19: 50 Years of Growth -->
+        <div class="slide" data-notes="In 50 years, Australian property has survived oil shocks, recessions, the GFC, a pandemic, and everything in between. Through ALL of it, property doubled every 7-10 years. If you'd bought 20 years ago, your property is worth 4x what you paid. 30 years ago? 8x. The people who lost money in property are the ones who panicked and sold. The ones who held? They became millionaires. That's not opinion — that's 50 years of data.">
+            <div class="slide-content">
+                <h2>50 YEARS. EVERY CRISIS. PROPERTY WON.</h2>
+                <div class="chart-placeholder">
+                    <div class="chart-label">📊 Historical Property Prices 1970-2026 Chart</div>
+                    <div class="chart-source">Source: API Magazine</div>
+                </div>
+                <ul>
+                    <li>Oil shocks. Recessions. GFC. Pandemic. Property powered through <strong class="gold">ALL of them</strong>.</li>
+                    <li>Australian property doubles every <strong class="gold">7-10 years</strong>.</li>
+                    <li>The cost of waiting is <strong class="gold">ENORMOUS</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 20: The Markoski Method -->
+        <div class="slide" data-notes="This is why I created the Markoski Method. Emotion tells you to panic when you see those scary headlines. Data tells you to buy. The Method identifies the Top 100 locations using population growth, supply constraints, infrastructure spending, and employment data. You buy brand new for maximum tax depreciation benefits. And then you hold. Because property doubles every 7-10 years. Your job isn't to time the market — it's to spend TIME in the market. That's how I built 160 properties and retired at 37.">
+            <div class="slide-content">
+                <h2>THIS IS WHY DATA BEATS EMOTION.</h2>
+                <ul>
+                    <li><strong class="gold">The Markoski Method:</strong> Data-driven Top 100 location selection.</li>
+                    <li><strong class="gold">Buy brand new:</strong> Maximum tax depreciation + lower maintenance.</li>
+                    <li><strong class="gold">Buy and hold:</strong> Let compound growth do the work.</li>
+                    <li>Property doubles every <strong class="gold">7-10 years</strong>. Patience is the strategy.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 21: What To Do Now -->
+        <div class="slide" data-notes="So what should you do? Number one — if you're going to buy, buy in a Top 100 location. The data shows Brisbane, Perth, Adelaide still have significant runway. Number two — buy brand new. You get the full depreciation schedule, lower maintenance, modern design that tenants love. Number three — hold. Don't try to be clever. Property doubles every 7-10 years. Your job is to hold through the noise. And number four — remember that fear creates opportunity. Right now, consumer confidence is at 73. People are scared. That's EXACTLY when the best deals are available.">
+            <div class="slide-content">
+                <h2>YOUR ACTION PLAN.</h2>
+                <ul>
+                    <li><strong class="gold">NOW:</strong> Buy in Top 100 locations (Brisbane/Perth still have runway).</li>
+                    <li><strong class="gold">BRAND NEW:</strong> Lock in maximum depreciation before tax changes.</li>
+                    <li><strong class="gold">HOLD:</strong> Don't try to time the market. Time IN the market wins.</li>
+                    <li><strong class="gold">FEAR = OPPORTUNITY:</strong> When everyone's scared, smart investors buy.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 22: Section Divider - Real Results -->
+        <div class="slide center" data-notes="Enough theory. Let me show you real people getting real results with the Markoski Method.">
+            <div class="slide-content">
+                <h1>REAL PEOPLE. REAL RESULTS.</h1>
+                <h3>The Markoski Method in Action</h3>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 23: Client Win #1 -->
+        <div class="slide center" data-notes="This is what the Markoski Method looks like in practice. $45,000 deposit turned into $640,000 in equity. That's a 1,323% return on investment. Capalaba, Queensland — a Top 100 location. Brand new property. Bought and held for 4 years. The property doubled — exactly like the data predicted. This isn't luck. This is the system working.">
+            <div class="slide-content">
+                <h2>1,323% ROI</h2>
+                <p class="content-text" style="text-align: center; font-size: 48px; margin: 40px 0;">
+                    <strong class="gold">BEFORE:</strong> $45K deposit<br>
+                    <strong class="gold">AFTER:</strong> $640K equity
+                </p>
+                <p class="content-text" style="text-align: center; font-size: 32px;">
+                    Location: <strong class="gold">Capalaba, QLD</strong> | Time: <strong class="gold">4 years</strong>
+                </p>
+                <p class="content-text" style="text-align: center; font-style: italic; margin-top: 30px;">
+                    Top 100 location. Brand new. Buy and hold.
+                </p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 24: Client Win #2 -->
+        <div class="slide center" data-notes="[George to fill with recent member win and speaker notes]">
+            <div class="slide-content">
+                <h2>[ROI]%</h2>
+                <p class="content-text" style="text-align: center; font-size: 48px; margin: 40px 0;">
+                    <strong class="gold">BEFORE:</strong> $[X]<br>
+                    <strong class="gold">AFTER:</strong> $[X]
+                </p>
+                <p class="content-text" style="text-align: center; font-size: 32px;">
+                    [George to fill with recent member win]
+                </p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 25: Client Win #3 -->
+        <div class="slide center" data-notes="[George to fill with recent member win and speaker notes]">
+            <div class="slide-content">
+                <h2>[ROI]%</h2>
+                <p class="content-text" style="text-align: center; font-size: 48px; margin: 40px 0;">
+                    <strong class="gold">BEFORE:</strong> $[X]<br>
+                    <strong class="gold">AFTER:</strong> $[X]
+                </p>
+                <p class="content-text" style="text-align: center; font-size: 32px;">
+                    [George to fill with recent member win]
+                </p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 26: Welcome New Members -->
+        <div class="slide center" data-notes="I want to welcome our newest members. You've just joined a community of over 3,500 Australians who've taken control of their financial future. Our mission is 10,000 property millionaires. And with the Markoski Method guiding your decisions, you're now on that path.">
+            <div class="slide-content">
+                <h2>WELCOME TO THE MOVEMENT.</h2>
+                <ul style="text-align: left; max-width: 900px; margin: 0 auto;">
+                    <li><strong class="gold">[X]</strong> new Street-Smart Investors joined this week.</li>
+                    <li>Part of a community of <strong class="gold">3,500+ Australians</strong> building wealth.</li>
+                    <li>On the road to <strong class="gold">10,000 property millionaires</strong>.</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 27: Guest/Deep Dive -->
+        <div class="slide center" data-notes="[George to fill with tonight's guest or deep dive topic and speaker notes]">
+            <div class="slide-content">
+                <h2>[TONIGHT'S DEEP DIVE]</h2>
+                <p class="content-text" style="text-align: center; font-size: 36px;">
+                    [Placeholder for guest/topic]
+                </p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 28: Q&A -->
+        <div class="slide center" data-notes="Alright, let's open it up. What questions do you have? Drop them in the chat and we'll get through as many as we can.">
+            <div class="slide-content">
+                <h2>YOUR QUESTIONS. REAL ANSWERS.</h2>
+                <p class="content-text" style="text-align: center; font-size: 36px; margin-top: 60px;">
+                    Drop your questions in the chat.
+                </p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 29: Event CTA -->
+        <div class="slide center" data-notes="If you want to go deeper, our next event is [EVENT]. This is where we break down the Markoski Method in detail, you meet our team, and we map out your personal property strategy.">
+            <div class="slide-content">
+                <h2>THE ULTIMATE INVESTOR EXPERIENCE</h2>
+                <p class="content-text" style="text-align: center; font-size: 36px; margin-top: 60px;">
+                    [Placeholder for next event]
+                </p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 30: Join CTA -->
+        <div class="slide center" data-notes="If you're serious about financial freedom through property, this is your moment. I built 160 properties and retired at 37 using the exact method I teach. Robert Kiyosaki endorsed it. Gary Vaynerchuk endorsed it. Over 3,500 Australians have used it to transform their financial future. Head to positiveproperty.com.au and let's get started.">
+            <div class="slide-content">
+                <h2>READY TO BUILD YOUR PORTFOLIO?</h2>
+                <ul style="text-align: left; max-width: 900px; margin: 0 auto;">
+                    <li><strong class="gold">160 properties.</strong> Retired at 37. Endorsed by Robert Kiyosaki.</li>
+                    <li>The Markoski Method: Buy brand new. Top 100 locations. Hold.</li>
+                    <li><strong class="gold">3,500+ Australians.</strong> Your turn.</li>
+                </ul>
+                <p class="content-text" style="text-align: center; font-size: 48px; margin-top: 50px;">
+                    <strong class="gold">positiveproperty.com.au</strong>
+                </p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 31: Closing Summary -->
+        <div class="slide" data-notes="Let me wrap this up with the key takeaways. Oil crisis forces emergency rate cuts. Every rate cut cycle creates a property boom. Two-speed market — Perth, Brisbane, Adelaide DOUBLED while Sydney/Melbourne stalled. Australia's population growing faster than India while we're 81,000 homes short. Your wages are back to 2011 levels. Property doubles every 7-10 years. The question is: will YOU own one when it does? That's the show. Now go take action.">
+            <div class="slide-content">
+                <h2>TONIGHT'S KEY TAKEAWAYS</h2>
+                <ul>
+                    <li><strong class="gold">Oil → Cuts → Boom:</strong> Emergency rate cuts create property booms.</li>
+                    <li><strong class="gold">Two-Speed Market:</strong> Perth/Brisbane/Adelaide DOUBLED. Sydney/Melbourne stalled.</li>
+                    <li><strong class="gold">Population > India:</strong> Growing faster than India, only 2.8% build homes.</li>
+                    <li><strong class="gold">81K Homes Short:</strong> Supply crisis is structural. Not getting fixed.</li>
+                    <li><strong class="gold">Wages Failing:</strong> Back to 2011. Rents outpacing pay for 5 years.</li>
+                    <li><strong class="gold">Property Doubles:</strong> Every 7-10 years. 50 years of proof.</li>
+                </ul>
+                <p class="content-text" style="text-align: center; font-style: italic; margin-top: 40px; font-size: 36px;">
+                    The question is: <strong class="gold">will YOU own one when it does?</strong>
+                </p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+
+        <!-- Slide 32: Thank You -->
+        <div class="slide center" data-notes="That's the show. Thank you for being here. I'll see you next Thursday. Remember — fear is the best buying signal. Data beats emotion. And the Markoski Method works. Let's go.">
+            <div class="slide-content">
+                <h1>THANK YOU</h1>
+                <h3>See you next Thursday</h3>
+                <p class="content-text" style="text-align: center; font-size: 28px; margin-top: 60px;">
+                    The Positive Property Show with George Markoski
+                </p>
+                <p class="content-text" style="text-align: center; font-size: 24px; margin-top: 20px; color: #C5A55A;">
+                    @georgemarkoski | positiveproperty.com.au
+                </p>
+            </div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">MONEY FOR LIFE</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Speaker Notes Panel -->
+    <div class="speaker-notes" id="speakerNotes">
+        <div class="speaker-notes-title">SPEAKER NOTES</div>
+        <div class="speaker-notes-content" id="speakerNotesContent"></div>
+    </div>
+
+    <!-- Hooks Panel -->
+    <div class="hooks-panel" id="hooksPanel">
+        <div class="hooks-title">📱 SHORT-FORM HOOKS (15-30 sec clips)</div>
+        
+        <div class="hook-item">
+            <div class="hook-number">Hook 1: The Opener</div>
+            <div class="hook-content">
+                "Oil at $109, heading to $200. Consumer confidence crashed. Real wages back to 2011. 
+                The headlines say property crash. But here's what 160 properties taught me: 
+                Inside every crisis is the setup for the next boom. Let me show you why."
+            </div>
+        </div>
+        
+        <div class="hook-item">
+            <div class="hook-number">Hook 2: The India Stat</div>
+            <div class="hook-content">
+                "Australia is now growing faster than India. We're 27 million people and accelerating. 
+                But only 2.8% of recent migrants work in construction. So we're importing demand 
+                without importing supply. This is the fundamental equation driving property prices. 
+                And it's not changing anytime soon."
+            </div>
+        </div>
+        
+        <div class="hook-item">
+            <div class="hook-number">Hook 3: The Doubling Cities</div>
+            <div class="hook-content">
+                "The media says 'property market cooling.' Really? Perth has DOUBLED since COVID. 
+                Brisbane DOUBLED. Adelaide DOUBLED. Sydney and Melbourne stalled — but three cities 
+                are on fire. This is a two-speed market. And this is why location selection is 
+                everything. Right location? You doubled your money. Wrong location? You're stalling."
+            </div>
+        </div>
+        
+        <div class="hook-item">
+            <div class="hook-number">Hook 4: Canada Proof</div>
+            <div class="hook-content">
+                "Want proof immigration drives housing costs? Canada cut immigration from 500,000 to 
+                365,000. Within 17 months, rents fell 7.8%. Affordability improved from 34% to 29% 
+                of income. That's a controlled experiment. Australia is doing the exact opposite. 
+                Record immigration. And we're surprised rents are skyrocketing?"
+            </div>
+        </div>
+        
+        <div class="hook-item">
+            <div class="hook-number">Hook 5: The Wage Trap</div>
+            <div class="hook-content">
+                "Your real wages are back to 2011 levels. You're earning 6% less than you were at the peak. 
+                Wages up 3.4%. Rents up 3.9%. Inflation 3.8%. The RBA says this doesn't recover before 2028. 
+                If you're relying on your salary alone to build wealth, you are losing. Every single year. 
+                This is why property matters."
+            </div>
+        </div>
+        
+        <div class="hook-item">
+            <div class="hook-number">Hook 6: The Crisis Cycle</div>
+            <div class="hook-content">
+                "Oil crisis forces emergency rate cuts. Every time the RBA cuts aggressively, property booms. 
+                1991. 2001. 2008. 2020. This isn't speculation — it's the historical pattern. 
+                Every crisis that forced emergency cuts created the next property boom. 
+                The cycle is about to turn. Again."
+            </div>
+        </div>
+        
+        <div class="hook-item">
+            <div class="hook-number">Hook 7: The Supply Crisis</div>
+            <div class="hook-content">
+                "Government promised 1.2 million homes in 5 years. Fifteen months in? 81,000 homes short. 
+                That's 27% behind target. And approvals are FALLING, not growing. Tradies used to be 54% 
+                of construction workforce. Now they're 50%. More people pushing paper, fewer laying bricks. 
+                This supply crisis is structural. It's not getting fixed."
+            </div>
+        </div>
+        
+        <div class="hook-item">
+            <div class="hook-number">Hook 8: The Closer (Bio)</div>
+            <div class="hook-content">
+                "I built 160 properties. Retired at 37 with six figures passive income. Robert Kiyosaki 
+                endorsed my method. Gary Vaynerchuk endorsed my method. Over 3,500 Australians have used 
+                it to transform their financial future. Top 100 locations. Brand new properties. 
+                Buy and hold. Property doubles every 7-10 years. The Markoski Method works. Let me show you how."
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Overlay -->
+    <div class="help-overlay" id="helpOverlay">
+        <div class="help-title">KEYBOARD SHORTCUTS</div>
+        <div class="help-item"><span class="help-key">→ / Space</span> - Next slide</div>
+        <div class="help-item"><span class="help-key">← / Backspace</span> - Previous slide</div>
+        <div class="help-item"><span class="help-key">N</span> - Toggle speaker notes</div>
+        <div class="help-item"><span class="help-key">H</span> - Toggle hooks panel</div>
+        <div class="help-item"><span class="help-key">?</span> - Toggle this help</div>
+        <div class="help-item"><span class="help-key">Click</span> - Next slide</div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const speakerNotes = document.getElementById('speakerNotes');
+        const speakerNotesContent = document.getElementById('speakerNotesContent');
+        const hooksPanel = document.getElementById('hooksPanel');
+        const helpOverlay = document.getElementById('helpOverlay');
+        
+        // Scale presentation to fit screen
+        function scalePresentation() {
+            const presentation = document.getElementById('presentation');
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const slideWidth = 1280;
+            const slideHeight = 720;
+            
+            const scaleX = windowWidth / slideWidth;
+            const scaleY = windowHeight / slideHeight;
+            const scale = Math.min(scaleX, scaleY);
+            
+            presentation.style.transform = `scale(${scale})`;
+            presentation.style.transformOrigin = 'top left';
+        }
+        
+        // Show slide
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            if (n >= totalSlides) currentSlide = totalSlides - 1;
+            if (n < 0) currentSlide = 0;
+            
+            slides[currentSlide].classList.add('active');
+            updateSlideCounter();
+            updateSpeakerNotes();
+        }
+        
+        // Update slide counter
+        function updateSlideCounter() {
+            slides.forEach((slide, index) => {
+                const counter = slide.querySelector('.slide-counter');
+                if (counter) counter.remove();
+            });
+            
+            const counter = document.createElement('div');
+            counter.className = 'slide-counter';
+            counter.textContent = `${currentSlide + 1}/${totalSlides}`;
+            slides[currentSlide].appendChild(counter);
+        }
+        
+        // Update speaker notes
+        function updateSpeakerNotes() {
+            const currentSlideElement = slides[currentSlide];
+            const notes = currentSlideElement.getAttribute('data-notes');
+            speakerNotesContent.textContent = notes || 'No speaker notes for this slide.';
+        }
+        
+        // Navigation
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide--;
+            if (currentSlide < 0) currentSlide = 0;
+            showSlide(currentSlide);
+        }
+        
+        // Toggle speaker notes
+        function toggleNotes() {
+            speakerNotes.classList.toggle('visible');
+        }
+        
+        // Toggle hooks panel
+        function toggleHooks() {
+            hooksPanel.classList.toggle('visible');
+        }
+        
+        // Toggle help
+        function toggleHelp() {
+            helpOverlay.classList.toggle('visible');
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                case 'Backspace':
+                    e.preventDefault();
+                    prevSlide();
+                    break;
+                case 'n':
+                case 'N':
+                    toggleNotes();
+                    break;
+                case 'h':
+                case 'H':
+                    toggleHooks();
+                    break;
+                case '?':
+                    toggleHelp();
+                    break;
+            }
+        });
+        
+        // Click navigation
+        document.getElementById('presentation').addEventListener('click', (e) => {
+            if (!hooksPanel.classList.contains('visible') && !helpOverlay.classList.contains('visible')) {
+                nextSlide();
+            }
+        });
+        
+        // Initialize
+        window.addEventListener('resize', scalePresentation);
+        window.addEventListener('load', () => {
+            scalePresentation();
+            showSlide(0);
+        });
+    </script>
+</body>
+</html>
