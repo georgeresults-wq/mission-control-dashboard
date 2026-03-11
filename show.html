@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Positive Property Show - March 13, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #0A1628;
+            color: #FFFFFF;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            width: 1280px;
+            height: 720px;
+            background: #0A1628;
+            position: relative;
+            padding: 60px 80px 80px 80px;
+            display: none;
+            flex-direction: column;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: #C5A55A;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-size: 42px;
+            line-height: 1.2;
+        }
+
+        .slide-content {
+            flex: 1;
+            display: flex;
+            gap: 40px;
+        }
+
+        .chart-placeholder {
+            flex: 0 0 45%;
+            border: 3px solid #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            font-size: 20px;
+            color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .summary {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 26px;
+            line-height: 1.6;
+        }
+
+        .summary p {
+            margin-bottom: 18px;
+        }
+
+        .summary strong {
+            font-weight: 700;
+            color: #C5A55A;
+        }
+
+        .source {
+            position: absolute;
+            bottom: 120px;
+            right: 80px;
+            font-size: 16px;
+            color: #C5A55A;
+            font-style: italic;
+        }
+
+        .divider {
+            position: absolute;
+            bottom: 90px;
+            left: 80px;
+            right: 80px;
+            height: 2px;
+            background: #C5A55A;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .footer-left {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 400;
+            color: #FFFFFF;
+        }
+
+        .footer-right {
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 13px;
+            color: #C5A55A;
+        }
+
+        .slide-counter {
+            position: absolute;
+            bottom: 100px;
+            right: 80px;
+            font-size: 14px;
+            color: #FFFFFF;
+            opacity: 0.7;
+        }
+
+        /* Title card styles */
+        .title-card {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .title-card h1 {
+            font-size: 72px;
+            margin-bottom: 30px;
+        }
+
+        .title-card .subtitle {
+            font-size: 36px;
+            color: #FFFFFF;
+            margin-bottom: 15px;
+        }
+
+        .title-card .presenter {
+            font-size: 28px;
+            color: #C5A55A;
+            margin-top: 20px;
+        }
+
+        /* Section divider styles */
+        .section-divider {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .section-divider h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .section-divider .subtitle {
+            font-size: 32px;
+            color: #FFFFFF;
+        }
+
+        /* Bullets for headlines slide */
+        .bullets {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 28px;
+            line-height: 1.8;
+        }
+
+        .bullets li {
+            margin-bottom: 20px;
+            margin-left: 30px;
+        }
+
+        /* No chart layout */
+        .no-chart .slide-content {
+            flex-direction: column;
+        }
+
+        .no-chart .summary {
+            font-size: 28px;
+        }
+
+        /* Client wins layout */
+        .client-win {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 32px;
+        }
+
+        .client-win .roi {
+            font-size: 80px;
+            color: #C5A55A;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .client-win .detail {
+            margin: 15px 0;
+        }
+
+        .client-win .detail strong {
+            color: #C5A55A;
+            font-weight: 700;
+        }
+
+        .client-win .quote {
+            margin-top: 40px;
+            font-size: 24px;
+            font-style: italic;
+            color: #FFFFFF;
+        }
+
+        /* Welcome slide */
+        .welcome {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 32px;
+            line-height: 1.8;
+        }
+
+        .welcome p {
+            margin: 20px 0;
+        }
+
+        .welcome strong {
+            color: #C5A55A;
+            font-weight: 700;
+        }
+
+        /* QR placeholder */
+        .qr-placeholder {
+            width: 300px;
+            height: 300px;
+            border: 3px solid #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 20px;
+        }
+
+        /* Print styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                display: flex !important;
+            }
+            
+            .slide-counter {
+                display: none;
+            }
+        }
+
+        /* Transitions */
+        .slide {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- SLIDE 1: Title Card -->
+        <div class="slide active title-card">
+            <h1>THE POSITIVE PROPERTY SHOW</h1>
+            <div class="subtitle">State of the Nation — March 13, 2026</div>
+            <div class="presenter">With George Markoski</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">1/30</div>
+        </div>
+
+        <!-- SLIDE 2: Section Divider -->
+        <div class="slide section-divider">
+            <h1>STATE OF THE NATION</h1>
+            <div class="subtitle">The Two-Speed Market & What It Means For Investors</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">2/30</div>
+        </div>
+
+        <!-- SLIDE 3: This Week's Headlines -->
+        <div class="slide">
+            <h1>THIS WEEK IN PROPERTY</h1>
+            <ul class="bullets">
+                <li>Sydney & Melbourne FLAT — listings surge</li>
+                <li>Perth/Brisbane DOUBLED since COVID</li>
+                <li>Australia growing faster than India</li>
+                <li>Emergency RBA rate cuts on the table</li>
+                <li>Rents crushing wages — investor cashflow rising</li>
+            </ul>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">3/30</div>
+        </div>
+
+        <!-- SLIDE 4: RBA Rate -->
+        <div class="slide">
+            <h1>FORGET HIKES. THINK CUTS.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: RBA cash rate history]
+                </div>
+                <div class="summary">
+                    <p>Cash rate: <strong>3.85%</strong> (hiked from 3.60%).</p>
+                    <p>Oil at <strong>$109</strong>, heading to <strong>$200</strong> if Iran war continues.</p>
+                    <p>Emergency cuts possible — bond market hasn't priced growth shock.</p>
+                    <p>Every <strong>0.25%</strong> cut = ~<strong>$100K</strong> more borrowing power.</p>
+                </div>
+            </div>
+            <div class="source">Source: RBA, MacroBusiness March 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">4/30</div>
+        </div>
+
+        <!-- SLIDE 5: Rate Cuts Mean -->
+        <div class="slide no-chart">
+            <h1>CRISIS = OPPORTUNITY.</h1>
+            <div class="slide-content">
+                <div class="summary">
+                    <p>Oil shock → recession → emergency cuts → property boom.</p>
+                    <p>Every previous crisis that forced cuts led to the NEXT boom.</p>
+                    <p>Smart investors position BEFORE cuts, not after.</p>
+                </div>
+            </div>
+            <div class="source">Source: Historical RBA data</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">5/30</div>
+        </div>
+
+        <!-- SLIDE 6: Two-Speed Market -->
+        <div class="slide">
+            <h1>TWO MARKETS. ONE COUNTRY.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: PropTrack dwelling values since COVID]
+                </div>
+                <div class="summary">
+                    <p>Perth, Brisbane, Adelaide: <strong>DOUBLED</strong> since March 2020.</p>
+                    <p>Sydney: <strong>+46%</strong>. Melbourne: <strong>+22%</strong>. Both flatlined last <strong>28 days</strong>.</p>
+                    <p>Listings surging in Syd/Melb. Plunging in Perth/Brisbane.</p>
+                    <p>The crash is only in two cities. The boom is in three.</p>
+                </div>
+            </div>
+            <div class="source">Source: PropTrack, Cotality March 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">6/30</div>
+        </div>
+
+        <!-- SLIDE 7: Sydney Auction Market -->
+        <div class="slide">
+            <h1>SYDNEY'S AUCTION REALITY.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: Auction clearance rates]
+                </div>
+                <div class="summary">
+                    <p>NSW clearance: <strong>52%</strong> (1,130 auctions).</p>
+                    <p>SA clearance: <strong>75%</strong> (strongest).</p>
+                    <p>New listings flooding Sydney/Melbourne.</p>
+                    <p>More supply = slower growth. Not a crash — a correction.</p>
+                </div>
+            </div>
+            <div class="source">Source: Cotality March 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">7/30</div>
+        </div>
+
+        <!-- SLIDE 8: Brisbane Boom -->
+        <div class="slide">
+            <h1>BRISBANE: DOUBLED AND RISING.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: Brisbane dwelling values]
+                </div>
+                <div class="summary">
+                    <p>Median dwelling: <strong>$1,046,000</strong> — now #2 after Sydney.</p>
+                    <p>Up <strong>116%</strong> since COVID. Listings down <strong>22.9%</strong> YoY.</p>
+                    <p>Shane Oliver (AMP) says <strong>45% overvalued</strong> vs historical ratios.</p>
+                    <p>But: Historical ratios assumed NORMAL population growth. QLD growth is anything but normal.</p>
+                </div>
+            </div>
+            <div class="source">Source: PropTrack, AMP, Cotality 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">8/30</div>
+        </div>
+
+        <!-- SLIDE 9: Population Bomb -->
+        <div class="slide">
+            <h1>GROWING FASTER THAN INDIA.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: OECD population growth comparison]
+                </div>
+                <div class="summary">
+                    <p>Australia: <strong>27.4 million</strong> and accelerating.</p>
+                    <p>QLD, WA, SA: Significantly ABOVE pre-pandemic population trend.</p>
+                    <p>VIC: Well BELOW trend — explains price weakness.</p>
+                    <p>More people + fewer homes = one outcome.</p>
+                </div>
+            </div>
+            <div class="source">Source: ABS, OECD 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">9/30</div>
+        </div>
+
+        <!-- SLIDE 10: Immigration & Demand -->
+        <div class="slide no-chart">
+            <h1>AI TAKES JOBS. PEOPLE STILL NEED HOMES.</h1>
+            <div class="slide-content">
+                <div class="summary">
+                    <p>Immigration for "labour shortages" — but creates housing demand.</p>
+                    <p>Migration whack-a-mole: solve aged care, create construction shortage.</p>
+                    <p>Only <strong>2.8%</strong> of recent migrants work in construction.</p>
+                    <p>Importing DEMAND without importing SUPPLY.</p>
+                </div>
+            </div>
+            <div class="source">Source: MacroBusiness, Grattan Institute 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">10/30</div>
+        </div>
+
+        <!-- SLIDE 11: Building Target Shattered -->
+        <div class="slide">
+            <h1>THE TARGET IS SHATTERED.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: Dwelling completions vs target]
+                </div>
+                <div class="summary">
+                    <p>Government target: 240,000 homes/year. <strong>81,000 SHORT</strong> after 15 months.</p>
+                    <p>That's <strong>27%</strong> behind. Approvals still FALLING.</p>
+                    <p>NSW and QLD shortfall worst.</p>
+                    <p>Every home not built = more competition for existing stock.</p>
+                </div>
+            </div>
+            <div class="source">Source: ABS Building Approvals, Jan 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">11/30</div>
+        </div>
+
+        <!-- SLIDE 12: Too Many Suits -->
+        <div class="slide">
+            <h1>TOO MANY SUITS. NOT ENOUGH TRADIES.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: Tradies vs planners ratio]
+                </div>
+                <div class="summary">
+                    <p>Tradies: now only <strong>50%</strong> of construction workforce (was <strong>54%</strong>).</p>
+                    <p>Number of planners growing FASTER than dwelling values.</p>
+                    <p>Construction productivity declining. Build times ballooning.</p>
+                </div>
+            </div>
+            <div class="source">Source: Master Builders Australia, ABS 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">12/30</div>
+        </div>
+
+        <!-- SLIDE 13: Construction Costs -->
+        <div class="slide">
+            <h1>BUILDING COSTS HAVE EXPLODED.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: Residential construction cost index]
+                </div>
+                <div class="summary">
+                    <p>Fewer tradies + more bureaucracy = higher costs.</p>
+                    <p>Apartment build times ballooning.</p>
+                    <p>Government can't build its way out if it costs too much TO build.</p>
+                </div>
+            </div>
+            <div class="source">Source: ABS, MBA 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">13/30</div>
+        </div>
+
+        <!-- SLIDE 14: Economy Snapshot -->
+        <div class="slide">
+            <h1>THE ECONOMY: STRONGER THAN YOU THINK.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: GDP & unemployment trends]
+                </div>
+                <div class="summary">
+                    <p>GDP growth: <strong>2.6%</strong> (accelerating from 2.1%).</p>
+                    <p>Unemployment: <strong>4.1%</strong> (historically low).</p>
+                    <p>But consumer confidence: <strong>73.4</strong> (people FEEL bad).</p>
+                    <p>Reality vs sentiment: the economy is fine, people are scared.</p>
+                </div>
+            </div>
+            <div class="source">Source: ABS, ANZ-Roy Morgan March 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">14/30</div>
+        </div>
+
+        <!-- SLIDE 15: Wages vs Property -->
+        <div class="slide">
+            <h1>YOUR WAGES ARE GOING BACKWARDS.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: Real wages index]
+                </div>
+                <div class="summary">
+                    <p>Real wages fell <strong>0.3%</strong> in 2025. Now <strong>6%</strong> below peak.</p>
+                    <p>Back to <strong>2011 levels</strong>. RBA says NO recovery through 2028.</p>
+                    <p>Meanwhile, Perth/Brisbane/Adelaide property: <strong>DOUBLED</strong>.</p>
+                    <p>Wages won't make you wealthy. Assets will.</p>
+                </div>
+            </div>
+            <div class="source">Source: ABS Wage Price Index, RBA SoMP Feb 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">15/30</div>
+        </div>
+
+        <!-- SLIDE 16: Rental Crisis -->
+        <div class="slide">
+            <h1>RENTERS ARE GETTING CRUSHED.</h1>
+            <div class="slide-content">
+                <div class="chart-placeholder">
+                    [Chart: Rent vs wage growth]
+                </div>
+                <div class="summary">
+                    <p>Wage growth: <strong>3.4%</strong>. Rent growth: <strong>3.9%+</strong>.</p>
+                    <p>Rents outpacing wages for 5 consecutive years.</p>
+                    <p>Vacancy rates: historically tight. No relief in sight.</p>
+                </div>
+            </div>
+            <div class="source">Source: Cotality, ABS 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">16/30</div>
+        </div>
+
+        <!-- SLIDE 17: Investor Cashflow -->
+        <div class="slide no-chart">
+            <h1>INVESTORS ARE WINNING.</h1>
+            <div class="slide-content">
+                <div class="summary">
+                    <p>Investor lending: up to <strong>$39.8 billion</strong> (from $33.8B).</p>
+                    <p>Regional WA yields hitting <strong>10%</strong>.</p>
+                    <p>Investors piling in before potential CGT changes.</p>
+                    <p>Rising rents = stronger cashflow = more attractive investment.</p>
+                </div>
+            </div>
+            <div class="source">Source: ABS Lending Indicators, MacroBusiness 2026</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">17/30</div>
+        </div>
+
+        <!-- SLIDE 18: The Crash That Isn't -->
+        <div class="slide no-chart">
+            <h1>THE CRASH IS IN YOUR NEWS FEED.</h1>
+            <div class="slide-content">
+                <div class="summary">
+                    <p>Perth: <strong>DOUBLED</strong>. Brisbane: <strong>DOUBLED</strong>. Adelaide: <strong>DOUBLED</strong>.</p>
+                    <p>Sydney/Melbourne: Taking a breather, not crashing.</p>
+                    <p>Media only reports Syd/Melb because that's where journalists live.</p>
+                    <p>50 years of crises. 50 years of property growth.</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">18/30</div>
+        </div>
+
+        <!-- SLIDE 19: Rate Cuts Supercharge -->
+        <div class="slide no-chart">
+            <h1>BAD NEWS = GOOD NEWS FOR PROPERTY.</h1>
+            <div class="slide-content">
+                <div class="summary">
+                    <p>Oil crisis → recession → emergency cuts → property boom.</p>
+                    <p>This is the CYCLE. It's happened every time.</p>
+                    <p>Shortage doesn't disappear when economy weakens.</p>
+                    <p>Position before cuts, not after.</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">19/30</div>
+        </div>
+
+        <!-- SLIDE 20: The Action Slide -->
+        <div class="slide no-chart">
+            <h1>WHAT SHOULD YOU DO RIGHT NOW?</h1>
+            <div class="slide-content">
+                <div class="summary">
+                    <p><strong>Now:</strong> Brisbane/Perth still have runway (acute shortage).</p>
+                    <p><strong>Watch:</strong> Sydney/Melbourne could be bargains in 6-12 months.</p>
+                    <p><strong>Strategy:</strong> Buy where supply is tight + population growing.</p>
+                    <p><strong>Mindset:</strong> Fear creates opportunity. Always has.</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">20/30</div>
+        </div>
+
+        <!-- SLIDE 21: Client Wins Section Divider -->
+        <div class="slide section-divider">
+            <h1>REAL PEOPLE. REAL RESULTS.</h1>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">21/30</div>
+        </div>
+
+        <!-- SLIDE 22: Client Win #1 -->
+        <div class="slide">
+            <h1>1,323% ROI</h1>
+            <div class="client-win">
+                <div class="detail"><strong>BEFORE:</strong> $45K deposit</div>
+                <div class="detail"><strong>AFTER:</strong> $640K equity</div>
+                <div class="detail">Location: Capalaba, QLD | Time: 4 years</div>
+                <div class="quote">"This is what the MARKOSKI Method looks like in action."</div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">22/30</div>
+        </div>
+
+        <!-- SLIDE 23: Client Win #2 (Placeholder) -->
+        <div class="slide">
+            <h1>[CLIENT ROI]%</h1>
+            <div class="client-win">
+                <div class="detail"><strong>BEFORE:</strong> $[amount] deposit</div>
+                <div class="detail"><strong>AFTER:</strong> $[amount] equity</div>
+                <div class="detail">Location: [City, State] | Time: [X] years</div>
+                <div class="quote">[George to fill with recent win]</div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">23/30</div>
+        </div>
+
+        <!-- SLIDE 24: Client Win #3 (Placeholder) -->
+        <div class="slide">
+            <h1>[CLIENT ROI]%</h1>
+            <div class="client-win">
+                <div class="detail"><strong>BEFORE:</strong> $[amount] deposit</div>
+                <div class="detail"><strong>AFTER:</strong> $[amount] equity</div>
+                <div class="detail">Location: [City, State] | Time: [X] years</div>
+                <div class="quote">[George to fill with recent win]</div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">24/30</div>
+        </div>
+
+        <!-- SLIDE 25: Welcome New Members -->
+        <div class="slide">
+            <h1>WELCOME TO THE MOVEMENT.</h1>
+            <div class="welcome">
+                <p><strong>[X]</strong> new Street-Smart Investors joined this week</p>
+                <p>You're now part of a community of <strong>3,500+</strong> Australians building wealth through property.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">25/30</div>
+        </div>
+
+        <!-- SLIDE 26: Guest/Topic Intro -->
+        <div class="slide no-chart">
+            <h1>[TONIGHT'S DEEP DIVE]</h1>
+            <div class="slide-content">
+                <div class="summary">
+                    <p>[Placeholder for guest name/topic]</p>
+                    <p>[Guest credentials]</p>
+                    <p>[Why this matters for property investors]</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">26/30</div>
+        </div>
+
+        <!-- SLIDE 27: Q&A -->
+        <div class="slide no-chart">
+            <h1>YOUR QUESTIONS. REAL ANSWERS.</h1>
+            <div class="slide-content">
+                <div class="summary">
+                    <p>Drop your questions in the chat</p>
+                    <p>We'll answer as many as we can</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">27/30</div>
+        </div>
+
+        <!-- SLIDE 28: Event CTA -->
+        <div class="slide">
+            <h1>JOIN THE ULTIMATE INVESTOR EXPERIENCE</h1>
+            <div class="slide-content">
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <p style="font-size: 28px; margin-bottom: 30px; text-align: center;">[Placeholder for next event details]</p>
+                    <div class="qr-placeholder">
+                        [QR Code]
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">28/30</div>
+        </div>
+
+        <!-- SLIDE 29: Community CTA -->
+        <div class="slide no-chart">
+            <h1>READY TO BUILD YOUR PORTFOLIO?</h1>
+            <div class="slide-content">
+                <div class="summary">
+                    <p>Join the MARKOSKI Method community</p>
+                    <p>Access live training + market updates</p>
+                    <p>10,000 Australians to financial freedom — are you next?</p>
+                    <p style="color: #C5A55A; margin-top: 30px;">positiveproperty.com.au</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">29/30</div>
+        </div>
+
+        <!-- SLIDE 30: Closing -->
+        <div class="slide title-card">
+            <h1 style="font-size: 64px;">THANK YOU</h1>
+            <div class="subtitle" style="margin-top: 30px;">See you next Thursday</div>
+            <div class="presenter" style="margin-top: 40px;">The Positive Property Show</div>
+            <div style="margin-top: 40px; font-size: 20px; color: #FFFFFF;">[Social handles placeholder]</div>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="footer-left">POSITIVE PROPERTY</div>
+                <div class="footer-right">Money For Life</div>
+            </div>
+            <div class="slide-counter">30/30</div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Click navigation (right half = next, left half = prev)
+        document.querySelector('.slide-container').addEventListener('click', (e) => {
+            const clickX = e.clientX;
+            const windowWidth = window.innerWidth;
+            
+            if (clickX > windowWidth / 2) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        });
+
+        // Prevent text selection on double-click
+        document.querySelector('.slide-container').addEventListener('mousedown', (e) => {
+            if (e.detail > 1) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
