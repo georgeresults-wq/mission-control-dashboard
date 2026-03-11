@@ -6,13 +6,33 @@
       "description": "Research and shortlist top 3 international tax advisors for Australian expats in Bali. Every week of delay = ~$38K left on the table.\n\nPotential savings: $2M/year",
       "status": "in_progress",
       "project": "growth",
-      "tags": ["priority-2", "high-roi", "$2M"],
+      "tags": [
+        "priority-2",
+        "high-roi",
+        "$2M"
+      ],
       "priority": "high",
       "subtasks": [
-        {"id": "t1", "title": "Review tax advisor research brief", "done": true},
-        {"id": "t2", "title": "Pick top 2 advisors", "done": false},
-        {"id": "t3", "title": "Book intro calls", "done": false},
-        {"id": "t4", "title": "Compare proposals", "done": false}
+        {
+          "id": "t1",
+          "title": "Review tax advisor research brief",
+          "done": true
+        },
+        {
+          "id": "t2",
+          "title": "Pick top 2 advisors",
+          "done": false
+        },
+        {
+          "id": "t3",
+          "title": "Book intro calls",
+          "done": false
+        },
+        {
+          "id": "t4",
+          "title": "Compare proposals",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -22,14 +42,37 @@
       "description": "Review and optimise current supplement stack. HBOT sessions (19 at 2 ATA) completed in Adelaide. Next session October.",
       "status": "backlog",
       "project": "wellness",
-      "tags": ["priority-1", "crohns"],
+      "tags": [
+        "priority-1",
+        "crohns"
+      ],
       "priority": "high",
       "subtasks": [
-        {"id": "h1", "title": "Audit current fasted stack effectiveness", "done": false},
-        {"id": "h2", "title": "Research HBOT maintenance protocol", "done": true},
-        {"id": "h3", "title": "Set up HRV tracking", "done": false}
+        {
+          "id": "h1",
+          "title": "Audit current fasted stack effectiveness",
+          "done": false
+        },
+        {
+          "id": "h2",
+          "title": "Research HBOT maintenance protocol",
+          "done": true
+        },
+        {
+          "id": "h3",
+          "title": "Set up HRV tracking",
+          "done": false
+        }
       ],
-      "createdAt": "2026-03-09T08:00:00Z"
+      "createdAt": "2026-03-09T08:00:00Z",
+      "comments": [
+        {
+          "id": "c1",
+          "author": "MoltBot",
+          "text": "Mission Control is now online! Testing webhook integration. 🎯",
+          "createdAt": "2026-03-12T07:24:55.902368Z"
+        }
+      ]
     },
     {
       "id": "sm001",
@@ -37,15 +80,42 @@
       "description": "Automated content discovery → scripting → publishing pipeline. George on camera, contrarian property content.",
       "status": "in_progress",
       "project": "growth",
-      "tags": ["priority-3", "content"],
+      "tags": [
+        "priority-3",
+        "content"
+      ],
       "priority": "high",
       "subtasks": [
-        {"id": "c1", "title": "Get YouTube Data API key", "done": false},
-        {"id": "c2", "title": "Build transcript extraction skill", "done": false},
-        {"id": "c3", "title": "Set up viral signal detection", "done": false},
-        {"id": "c4", "title": "Connect copywriter agent for script drafting", "done": false},
-        {"id": "c5", "title": "n8n workflows built (5 total)", "done": true},
-        {"id": "c6", "title": "Lawrence sets up API credentials", "done": false}
+        {
+          "id": "c1",
+          "title": "Get YouTube Data API key",
+          "done": false
+        },
+        {
+          "id": "c2",
+          "title": "Build transcript extraction skill",
+          "done": false
+        },
+        {
+          "id": "c3",
+          "title": "Set up viral signal detection",
+          "done": false
+        },
+        {
+          "id": "c4",
+          "title": "Connect copywriter agent for script drafting",
+          "done": false
+        },
+        {
+          "id": "c5",
+          "title": "n8n workflows built (5 total)",
+          "done": true
+        },
+        {
+          "id": "c6",
+          "title": "Lawrence sets up API credentials",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-10T06:00:00Z"
     },
@@ -55,7 +125,11 @@
       "description": "5 hot takes ready. Run through humaniser rules and publish natively.",
       "status": "backlog",
       "project": "growth",
-      "tags": ["priority-3", "content", "quick-win"],
+      "tags": [
+        "priority-3",
+        "content",
+        "quick-win"
+      ],
       "priority": "medium",
       "createdAt": "2026-03-09T10:00:00Z"
     },
@@ -65,18 +139,58 @@
       "description": "16 APIs needed across business. P1 credentials this week (Google, Slack, GHL, Meta, YouTube, Apify). Lawrence executing.",
       "status": "in_progress",
       "project": "devops",
-      "tags": ["apis", "setup", "lawrence"],
+      "tags": [
+        "apis",
+        "setup",
+        "lawrence"
+      ],
       "priority": "high",
       "subtasks": [
-        {"id": "a1", "title": "Google Workspace API (Service Account)", "done": false},
-        {"id": "a2", "title": "Slack Bot Token", "done": false},
-        {"id": "a3", "title": "GoHighLevel API", "done": false},
-        {"id": "a4", "title": "Meta Business Suite API", "done": false},
-        {"id": "a5", "title": "YouTube Data + Analytics API", "done": false},
-        {"id": "a6", "title": "Apify API Token", "done": false},
-        {"id": "a7", "title": "Stripe API (read-only)", "done": false},
-        {"id": "a8", "title": "ClickUp API", "done": false},
-        {"id": "a9", "title": "Time Doctor API", "done": false}
+        {
+          "id": "a1",
+          "title": "Google Workspace API (Service Account)",
+          "done": false
+        },
+        {
+          "id": "a2",
+          "title": "Slack Bot Token",
+          "done": false
+        },
+        {
+          "id": "a3",
+          "title": "GoHighLevel API",
+          "done": false
+        },
+        {
+          "id": "a4",
+          "title": "Meta Business Suite API",
+          "done": false
+        },
+        {
+          "id": "a5",
+          "title": "YouTube Data + Analytics API",
+          "done": false
+        },
+        {
+          "id": "a6",
+          "title": "Apify API Token",
+          "done": false
+        },
+        {
+          "id": "a7",
+          "title": "Stripe API (read-only)",
+          "done": false
+        },
+        {
+          "id": "a8",
+          "title": "ClickUp API",
+          "done": false
+        },
+        {
+          "id": "a9",
+          "title": "Time Doctor API",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-10T05:00:00Z"
     },
@@ -86,17 +200,53 @@
       "description": "32-slide show BUILT. Needs: client wins #2-3, guest confirmation, chart screenshots from MacroBusiness URLs, event CTA.",
       "status": "in_progress",
       "project": "growth",
-      "tags": ["priority-3", "content", "thursday"],
+      "tags": [
+        "priority-3",
+        "content",
+        "thursday"
+      ],
       "priority": "high",
       "subtasks": [
-        {"id": "s1", "title": "Research 15 MacroBusiness articles", "done": true},
-        {"id": "s2", "title": "Build 32-slide presentation", "done": true},
-        {"id": "s3", "title": "Write 8 reel hooks", "done": true},
-        {"id": "s4", "title": "Social posts + email snippets", "done": true},
-        {"id": "s5", "title": "George fills client wins #2-3", "done": false},
-        {"id": "s6", "title": "Confirm guest + topic", "done": false},
-        {"id": "s7", "title": "Screenshot charts from source URLs", "done": false},
-        {"id": "s8", "title": "Event CTA details", "done": false}
+        {
+          "id": "s1",
+          "title": "Research 15 MacroBusiness articles",
+          "done": true
+        },
+        {
+          "id": "s2",
+          "title": "Build 32-slide presentation",
+          "done": true
+        },
+        {
+          "id": "s3",
+          "title": "Write 8 reel hooks",
+          "done": true
+        },
+        {
+          "id": "s4",
+          "title": "Social posts + email snippets",
+          "done": true
+        },
+        {
+          "id": "s5",
+          "title": "George fills client wins #2-3",
+          "done": false
+        },
+        {
+          "id": "s6",
+          "title": "Confirm guest + topic",
+          "done": false
+        },
+        {
+          "id": "s7",
+          "title": "Screenshot charts from source URLs",
+          "done": false
+        },
+        {
+          "id": "s8",
+          "title": "Event CTA details",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-11T06:00:00Z"
     },
@@ -106,14 +256,37 @@
       "description": "Separate Docker container for team-facing AI. Atlas Prime (personal) ↔ Atlas Business (team). Data flows one way only.",
       "status": "backlog",
       "project": "devops",
-      "tags": ["infrastructure", "lawrence"],
+      "tags": [
+        "infrastructure",
+        "lawrence"
+      ],
       "priority": "medium",
       "subtasks": [
-        {"id": "d1", "title": "Draft Docker Compose spec", "done": false},
-        {"id": "d2", "title": "Lawrence reviews spec", "done": false},
-        {"id": "d3", "title": "Deploy Atlas Business container", "done": false},
-        {"id": "d4", "title": "Set up inter-instance communication", "done": false},
-        {"id": "d5", "title": "Pilot with sales team", "done": false}
+        {
+          "id": "d1",
+          "title": "Draft Docker Compose spec",
+          "done": false
+        },
+        {
+          "id": "d2",
+          "title": "Lawrence reviews spec",
+          "done": false
+        },
+        {
+          "id": "d3",
+          "title": "Deploy Atlas Business container",
+          "done": false
+        },
+        {
+          "id": "d4",
+          "title": "Set up inter-instance communication",
+          "done": false
+        },
+        {
+          "id": "d5",
+          "title": "Pilot with sales team",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-10T06:30:00Z"
     },
@@ -123,13 +296,32 @@
       "description": "Reduce from 15 → 5-6 licenses. Only hosts need paid accounts. Savings: ~$12K/year.",
       "status": "in_progress",
       "project": "devops",
-      "tags": ["cost-saving", "$12K"],
+      "tags": [
+        "cost-saving",
+        "$12K"
+      ],
       "priority": "medium",
       "subtasks": [
-        {"id": "z1", "title": "Analysis complete — 5 paid, 10 free", "done": true},
-        {"id": "z2", "title": "Validate with Christina/Mel who hosts", "done": false},
-        {"id": "z3", "title": "Remove Barbara after March 30", "done": false},
-        {"id": "z4", "title": "Downgrade non-hosts", "done": false}
+        {
+          "id": "z1",
+          "title": "Analysis complete — 5 paid, 10 free",
+          "done": true
+        },
+        {
+          "id": "z2",
+          "title": "Validate with Christina/Mel who hosts",
+          "done": false
+        },
+        {
+          "id": "z3",
+          "title": "Remove Barbara after March 30",
+          "done": false
+        },
+        {
+          "id": "z4",
+          "title": "Downgrade non-hosts",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-10T10:30:00Z"
     },
@@ -139,14 +331,37 @@
       "description": "Connect Arlo cameras + HikVision CCTV to Atlas Prime. Motion alerts → WhatsApp. House empty 8 months/year.",
       "status": "backlog",
       "project": "devops",
-      "tags": ["tennyson", "security"],
+      "tags": [
+        "tennyson",
+        "security"
+      ],
       "priority": "medium",
       "subtasks": [
-        {"id": "te1", "title": "Get HikVision NVR credentials", "done": false},
-        {"id": "te2", "title": "Get Arlo account credentials", "done": false},
-        {"id": "te3", "title": "Build Arlo skill", "done": false},
-        {"id": "te4", "title": "Build HikVision skill", "done": false},
-        {"id": "te5", "title": "Motion alert → WhatsApp pipeline", "done": false}
+        {
+          "id": "te1",
+          "title": "Get HikVision NVR credentials",
+          "done": false
+        },
+        {
+          "id": "te2",
+          "title": "Get Arlo account credentials",
+          "done": false
+        },
+        {
+          "id": "te3",
+          "title": "Build Arlo skill",
+          "done": false
+        },
+        {
+          "id": "te4",
+          "title": "Build HikVision skill",
+          "done": false
+        },
+        {
+          "id": "te5",
+          "title": "Motion alert → WhatsApp pipeline",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-10T10:00:00Z"
     },
@@ -156,11 +371,22 @@
       "description": "Automate everything possible before baby arrives. Maximise delegation.",
       "status": "backlog",
       "project": "personal",
-      "tags": ["priority-4", "deadline-may29"],
+      "tags": [
+        "priority-4",
+        "deadline-may29"
+      ],
       "priority": "medium",
       "subtasks": [
-        {"id": "b1", "title": "List everything needing automation before baby", "done": false},
-        {"id": "b2", "title": "Maximise delegation before May", "done": false}
+        {
+          "id": "b1",
+          "title": "List everything needing automation before baby",
+          "done": false
+        },
+        {
+          "id": "b2",
+          "title": "Maximise delegation before May",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -170,12 +396,27 @@
       "description": "George has 20 years of notebooks in Adelaide. Scan → OCR → searchable knowledge base.",
       "status": "backlog",
       "project": "personal",
-      "tags": ["adelaide", "scanning"],
+      "tags": [
+        "adelaide",
+        "scanning"
+      ],
       "priority": "low",
       "subtasks": [
-        {"id": "s1", "title": "Choose: Airtasker, Officeworks, or buy scanner", "done": false},
-        {"id": "s2", "title": "Get notebooks scanned to PDF", "done": false},
-        {"id": "s3", "title": "Extract insights into knowledge base", "done": false}
+        {
+          "id": "s1",
+          "title": "Choose: Airtasker, Officeworks, or buy scanner",
+          "done": false
+        },
+        {
+          "id": "s2",
+          "title": "Get notebooks scanned to PDF",
+          "done": false
+        },
+        {
+          "id": "s3",
+          "title": "Extract insights into knowledge base",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-10T09:00:00Z"
     },
@@ -185,14 +426,37 @@
       "description": "Connect Meta Ray-Bans to OpenClaw via VisionClaw. Gemini Live for vision + voice.",
       "status": "backlog",
       "project": "devops",
-      "tags": ["visionclaw", "ray-bans"],
+      "tags": [
+        "visionclaw",
+        "ray-bans"
+      ],
       "priority": "low",
       "subtasks": [
-        {"id": "v1", "title": "Get Gemini API key", "done": false},
-        {"id": "v2", "title": "Enable chatCompletions on gateway", "done": false},
-        {"id": "v3", "title": "Clone VisionClaw repo", "done": false},
-        {"id": "v4", "title": "Build iOS/Android app", "done": false},
-        {"id": "v5", "title": "Test phone camera mode", "done": false}
+        {
+          "id": "v1",
+          "title": "Get Gemini API key",
+          "done": false
+        },
+        {
+          "id": "v2",
+          "title": "Enable chatCompletions on gateway",
+          "done": false
+        },
+        {
+          "id": "v3",
+          "title": "Clone VisionClaw repo",
+          "done": false
+        },
+        {
+          "id": "v4",
+          "title": "Build iOS/Android app",
+          "done": false
+        },
+        {
+          "id": "v5",
+          "title": "Test phone camera mode",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-09T17:00:00Z"
     },
@@ -202,12 +466,27 @@
       "description": "OEM sponsor path, $200-350K startup, $600M AU market. George ≤2hrs/month, sister leads.",
       "status": "backlog",
       "project": "growth",
-      "tags": ["delegated", "sister"],
+      "tags": [
+        "delegated",
+        "sister"
+      ],
       "priority": "low",
       "subtasks": [
-        {"id": "vp1", "title": "Shortlist 3 RA consultants", "done": false},
-        {"id": "vp2", "title": "Draft consultant briefing document", "done": false},
-        {"id": "vp3", "title": "Research OEM suppliers", "done": false}
+        {
+          "id": "vp1",
+          "title": "Shortlist 3 RA consultants",
+          "done": false
+        },
+        {
+          "id": "vp2",
+          "title": "Draft consultant briefing document",
+          "done": false
+        },
+        {
+          "id": "vp3",
+          "title": "Research OEM suppliers",
+          "done": false
+        }
       ],
       "createdAt": "2026-03-09T12:00:00Z"
     },
@@ -217,7 +496,10 @@
       "description": "Daily at midnight MYT. Reviews config and workspace files.",
       "status": "permanent",
       "project": "devops",
-      "tags": ["cron", "daily"],
+      "tags": [
+        "cron",
+        "daily"
+      ],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -227,7 +509,10 @@
       "description": "Daily. System maintenance, skill updates, overnight task execution.",
       "status": "permanent",
       "project": "devops",
-      "tags": ["cron", "daily"],
+      "tags": [
+        "cron",
+        "daily"
+      ],
       "priority": "high",
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -237,7 +522,11 @@
       "description": "Secret scanning, git commit, push to GitHub backup.",
       "status": "permanent",
       "project": "devops",
-      "tags": ["cron", "daily", "security"],
+      "tags": [
+        "cron",
+        "daily",
+        "security"
+      ],
       "priority": "high",
       "createdAt": "2026-03-09T15:00:00Z"
     },
@@ -247,7 +536,10 @@
       "description": "Weekly. Coach-style check-in. What's your ONE focus?",
       "status": "permanent",
       "project": "growth",
-      "tags": ["cron", "weekly"],
+      "tags": [
+        "cron",
+        "weekly"
+      ],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -257,7 +549,10 @@
       "description": "Weekly. Check for new AI model releases and pricing updates.",
       "status": "permanent",
       "project": "devops",
-      "tags": ["cron", "weekly"],
+      "tags": [
+        "cron",
+        "weekly"
+      ],
       "priority": "low",
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -267,7 +562,11 @@
       "description": "Weekly. Property, investing, RBA, interest rates. Bold contrarian takes.",
       "status": "permanent",
       "project": "growth",
-      "tags": ["cron", "weekly", "content"],
+      "tags": [
+        "cron",
+        "weekly",
+        "content"
+      ],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -277,7 +576,10 @@
       "description": "Weekly. Status report on all active projects with blockers.",
       "status": "permanent",
       "project": "devops",
-      "tags": ["cron", "weekly"],
+      "tags": [
+        "cron",
+        "weekly"
+      ],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -287,7 +589,10 @@
       "description": "Weekly. Week-in-review, next week's #1 focus.",
       "status": "permanent",
       "project": "growth",
-      "tags": ["cron", "weekly"],
+      "tags": [
+        "cron",
+        "weekly"
+      ],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -297,7 +602,11 @@
       "description": "Weekly. Content performance review across all platforms.",
       "status": "permanent",
       "project": "growth",
-      "tags": ["cron", "weekly", "analytics"],
+      "tags": [
+        "cron",
+        "weekly",
+        "analytics"
+      ],
       "priority": "medium",
       "createdAt": "2026-03-11T10:34:00Z"
     },
@@ -307,7 +616,10 @@
       "description": "Weekly. Atlas Prime grades itself. Routing accuracy, lessons learned.",
       "status": "permanent",
       "project": "devops",
-      "tags": ["cron", "weekly"],
+      "tags": [
+        "cron",
+        "weekly"
+      ],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     },
@@ -317,16 +629,40 @@
       "description": "Weekly at 9 AM. Needs IMAP credentials to activate.",
       "status": "permanent",
       "project": "devops",
-      "tags": ["cron", "weekly", "blocked"],
+      "tags": [
+        "cron",
+        "weekly",
+        "blocked"
+      ],
       "priority": "medium",
       "createdAt": "2026-03-09T08:00:00Z"
     }
   ],
   "projects": [
-    { "id": "devops", "name": "DevOps", "color": "#3b82f6", "icon": "💻" },
-    { "id": "growth", "name": "Growth", "color": "#10b981", "icon": "📈" },
-    { "id": "wellness", "name": "Wellness", "color": "#ec4899", "icon": "🧘" },
-    { "id": "personal", "name": "Personal", "color": "#8b5cf6", "icon": "🏠" }
+    {
+      "id": "devops",
+      "name": "DevOps",
+      "color": "#3b82f6",
+      "icon": "💻"
+    },
+    {
+      "id": "growth",
+      "name": "Growth",
+      "color": "#10b981",
+      "icon": "📈"
+    },
+    {
+      "id": "wellness",
+      "name": "Wellness",
+      "color": "#ec4899",
+      "icon": "🧘"
+    },
+    {
+      "id": "personal",
+      "name": "Personal",
+      "color": "#8b5cf6",
+      "icon": "🏠"
+    }
   ],
   "activities": [],
   "lastUpdated": "2026-03-11T09:00:00Z"
